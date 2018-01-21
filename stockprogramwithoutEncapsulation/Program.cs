@@ -59,8 +59,6 @@ namespace stockprogramwithoutEncapsulation
             }
 
             Console.ReadLine();
-
-            Console.ReadLine();
         }
     }
 }
