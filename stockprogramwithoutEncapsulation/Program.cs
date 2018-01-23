@@ -22,6 +22,10 @@ namespace stockprogramwithoutEncapsulation
 
             var close = new List<decimal>();
 
+            decimal highestValueStock = 0;
+
+            decimal lowestValueStock = decimal.MaxValue;
+
             var readData = File.ReadAllLines(args[0]);
 
             var realData = readData.Skip(1);
@@ -57,6 +61,22 @@ namespace stockprogramwithoutEncapsulation
                     Console.WriteLine("Stock price went up on {0}", date[i].ToShortDateString());
                 }
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
+
+            foreach (var item in high)
+            {
+                if (item > highestValueStock)
+                    highestValueStock = item;
+            }
+
+            foreach (var item in low)
+            {
+                if (item < lowestValueStock)
+                    lowestValueStock = item;
+            }
+
+            Console.WriteLine("The Highest value and Lowest value of Microsoft stock are {0} and {1} respectively", highestValueStock, lowestValueStock);
 
             Console.ReadLine();
         }
